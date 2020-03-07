@@ -6,6 +6,7 @@ const app = express();
 const config = require('./config');
 
 const PORT = config.PORT;
+const HOST = config.HOST
 
 // Handle data in a nice way
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +26,7 @@ app.get('/fake-abraham', async (req, res) => {
   try {
     const imageNumber = Math.floor(Math.random() * 100)
     const data = {
-      url: `http://localhost:${PORT}/textures/texture${imageNumber}.jpg`,
+      url: `${HOST}:${PORT}/textures/texture${imageNumber}.jpg`,
     }
     res.json(data);
   } catch (error) {
@@ -36,5 +37,5 @@ app.get('/fake-abraham', async (req, res) => {
 
 // Start listening
 app.listen(PORT, () => {
-  console.log(`see the magic: http://localhost:${PORT}`);
+  console.log(`see the magic: ${HOST}:${PORT}`);
 });
