@@ -26,7 +26,7 @@ app.get('/fake-abraham', async (req, res) => {
   try {
     const imageNumber = Math.floor(Math.random() * 100)
     const data = {
-      url: `${HOST}:${PORT}/textures/texture${imageNumber}.jpg`,
+      url: `${HOST}/textures/texture${imageNumber}.jpg`,
     }
     res.json(data);
   } catch (error) {
@@ -37,5 +37,5 @@ app.get('/fake-abraham', async (req, res) => {
 
 // Start listening
 app.listen(PORT, () => {
-  console.log(`see the magic: ${HOST}:${PORT}`);
+  console.log(`see the magic`);
 });
